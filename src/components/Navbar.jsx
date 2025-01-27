@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav
-    className={` sm:px-16 px-6 w-full flex items-center py-5 fixed top-0 z-20 ${
+    className={` sm:px-16 px-5 w-full flex items-center py-4 fixed top-0 z-20 ${
       scrolled ? "bg-primary" : "bg-transparent"
     }`}
     >
@@ -40,7 +40,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 rounded-2xl object-contain' />
+          <img src={logo} alt='logo' className='w-12 h-12 rounded-3xl object-contain' />
           {/* <p className='text-white text-[18px] font-bold cursor-pointer flex '>
             Adrian &nbsp;
             <span className='sm:block hidden'> | JavaScript Mastery</span>
