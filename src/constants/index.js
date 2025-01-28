@@ -24,7 +24,12 @@ import {
     tripguide,
     threejs,
     nitrr,
-    aiims
+    aiims,
+    chatapp,
+    lung,
+    farmerApp,
+    flutter,
+    python,
   } from "../assets";
   
   export const navLinks = [
@@ -135,41 +140,50 @@ import {
     
   ];
   
-  const testimonials = [
-    {
-      testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     testimonial:
+  //       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+  //     name: "Sara Lee",
+  //     designation: "CFO",
+  //     company: "Acme Co",
+  //     image: "https://randomuser.me/api/portraits/women/4.jpg",
+  //   },
+  //   {
+  //     testimonial:
+  //       "I've never met a web developer who truly cares about their clients' success like Rick does.",
+  //     name: "Chris Brown",
+  //     designation: "COO",
+  //     company: "DEF Corp",
+  //     image: "https://randomuser.me/api/portraits/men/5.jpg",
+  //   },
+  //   {
+  //     testimonial:
+  //       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+  //     name: "Lisa Wang",
+  //     designation: "CTO",
+  //     company: "456 Enterprises",
+  //     image: "https://randomuser.me/api/portraits/women/6.jpg",
+  //   },
+  // ];
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Chat App",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Implemented JWT authentication, real-time messaging with Socket.IO, and a React frontend with Redux for state management and cookie-based authentication.",
+        
       tags: [
         {
+          name: "JavaScript",
+          color: "green-text-gradient",
+        },
+        {
           name: "react",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "Expess",
           color: "blue-text-gradient",
         },
         {
@@ -177,55 +191,55 @@ import {
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
-          color: "pink-text-gradient",
+          name: "redux",
+          color: "blue-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: chatapp,
+      source_code_link: "https://chatapp-one-ashen.vercel.app/",
     },
     {
-      name: "Job IT",
+      name: "Lung Disease Detection",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Built and deployed an ML model with 94% accuracy for classifying respiratory conditions like Asthma and COPD, using hyperparameter tuning and cross-validation for improved performance. Deployed the model as a web app with Python (Streamlit) for real-time predictions.",
       tags: [
         {
-          name: "react",
+          name: "Python",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "Machine Learning",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "Streamlit",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
-          color: "pink-text-gradient",
+          name: "Sk-learn",
+          color: "blue-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: lung,
+      source_code_link: "https://github.com/Deepanshu9229/lung_sound_classification",
     },
     {
-      name: "Trip Guide",
+      name: "Farmer App",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "Built an app for farmers using Flutter and Dart, designed in Figma. Features include real-time pump control, timer adjustments, adding new pumps, and managing farm details. The app helps optimize water usage, reduce wastage, and boost farm productivity.",
       tags: [
         {
-          name: "nextjs",
+          name: "Flutter",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "Dart",
           color: "green-text-gradient",
         },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: farmerApp,
+      source_code_link: "https://drive.google.com/file/d/1Q6Nhao0lJd9xPqExpIpYW60WdkwtzOky/view?usp=sharing",
     },
   ];
   
-  export { services, technologies, experiences, testimonials, projects };
+  export { services, technologies, experiences, projects };
