@@ -15,8 +15,8 @@ const SectionWrapper = (Component, idName) =>
         variants={staggerContainer()} //animate
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+        viewport={{ once: true , amount: 0.2 }}
+        className={`${styles.padding} px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-0`}
       >
         {/* <span className="hash-span" id={idName}>
           &nbsp;
