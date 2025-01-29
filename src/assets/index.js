@@ -23,16 +23,10 @@ import threejs from "./tech/threejs.svg";
 import python from "./tech/python.png";
 import flutter from "./tech/flutter.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import nitrr from "./company/nitrr.png";
 import aiims from "./company/aiims.png"
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 import chatapp from "../assets/chatapp.png"
 import lung from "../assets/lung.png"
 import farmerApp from "../assets/farmerApp.jpg"
@@ -59,15 +53,11 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
+
   tesla,
   nitrr,
   aiims,
-  carrent,
-  jobit,
-  tripguide,
+ 
   chatapp,
   lung,
   farmerApp,
