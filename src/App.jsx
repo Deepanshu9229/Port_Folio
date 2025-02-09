@@ -15,12 +15,12 @@ const App = () => {
           <Navbar />
           <Hero />
         </div>
-        <About />
+        <About id="about"/>
         <Experience />
         <Tech />
-        <Works />
+        <Works id="work"/>
         <div className='relative z-0'>
-          <Contact />
+          <Contact id="contact"/>
           <StarsCanvas />
         </div>
       </div>

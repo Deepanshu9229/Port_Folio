@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import {Link as ScrollLink} from "react-scroll";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
@@ -56,7 +56,14 @@ const Navbar = () => {
               } hover:text-white text-[18px]  font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+             <ScrollLink
+                to={nav.id} // Match the ID of the section
+                smooth={true} // Enable smooth scrolling
+                duration={500} // Duration of the scroll animation
+                offset={-80} // Adjust for fixed header height
+              >
+                {nav.title}
+              </ScrollLink>
             </li>
           ))}
         </ul>
@@ -86,7 +93,14 @@ const Navbar = () => {
                     setActive(nav.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <ScrollLink
+                    to={nav.id} // Match the ID of the section
+                    smooth={true} // Enable smooth scrolling
+                    duration={500} // Duration of the scroll animation
+                    offset={-80} // Adjust for fixed header height
+                  >
+                    {nav.title}
+                  </ScrollLink>
                 </li>
               ))}
             </ul>

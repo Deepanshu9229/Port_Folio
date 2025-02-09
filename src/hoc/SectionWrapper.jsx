@@ -18,11 +18,9 @@ const SectionWrapper = (Component, idName) =>
         viewport={{ once: true , amount: 0.2 }}
         className={`${styles.padding} px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-0`}
       >
-        {/* <span className="hash-span" id={idName}>
+        <span className="hash-span" id={idName}>
           &nbsp;
-        </span> */} 
-        {/* //for scroll button in center */}
-
+        </span> 
         <Component />
       </motion.section>
     );
