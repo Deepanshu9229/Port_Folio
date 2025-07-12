@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {Link as ScrollLink} from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
@@ -12,55 +12,56 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (title) => {
+    setActive(title);
+    setToggle(false);
+  };
+
   return (
     <nav
-    className={` sm:px-16  w-full flex items-center py-3 fixed top-0 z-20 ${
-      scrolled ? `${styles.primary}` : "bg-transparent"
-    }`}
+      className={`px-4 sm:px-16 w-full flex items-center py-3 fixed top-0 z-20 transition-colors duration-300 ${
+        scrolled ? styles.primary : "bg-transparent"
+      }`}
     >
-      <div className='w-full flex justify-between items-center max-w-9xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        {/* Logo */}
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-12 h-12 rounded-3xl object-contain' />
-          {/* <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Adrian &nbsp;
-            <span className='sm:block hidden'> | JavaScript Mastery</span>
-          </p> */}
+          <img 
+            src={logo} 
+            alt="logo" 
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-3xl object-contain" 
+          />
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10 '>
+        {/* Desktop Navigation */}
+        <ul className="list-none hidden sm:flex flex-row gap-6 lg:gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px]  font-medium cursor-pointer`}
+              } hover:text-white text-[16px] lg:text-[18px] font-medium cursor-pointer transition-colors`}
               onClick={() => setActive(nav.title)}
             >
-             <ScrollLink
-                to={nav.id} // Match the ID of the section
-                smooth={true} // Enable smooth scrolling
-                duration={500} // Duration of the scroll animation
-                offset={-80} // Adjust for fixed header height
+              <ScrollLink
+                to={nav.id}
+                smooth={true}
+                duration={500}
+                offset={-80}
               >
                 {nav.title}
               </ScrollLink>
@@ -68,36 +69,35 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        {/* Mobile Menu Button */}
+        <div className="sm:hidden flex items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[24px] h-[24px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
 
+          {/* Mobile Menu */}
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6  black-gradient absolute top-20 right-0  mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } p-6 black-gradient absolute top-16 right-4 min-w-[140px] z-10 rounded-xl shadow-lg`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+            <ul className="list-none flex flex-col gap-4 w-full">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  className={`font-poppins font-medium cursor-pointer text-[16px] transition-colors ${
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
+                  onClick={() => handleNavClick(nav.title)}
                 >
                   <ScrollLink
-                    to={nav.id} // Match the ID of the section
-                    smooth={true} // Enable smooth scrolling
-                    duration={500} // Duration of the scroll animation
-                    offset={-80} // Adjust for fixed header height
+                    to={nav.id}
+                    smooth={true}
+                    duration={500}
+                    offset={-80}
                   >
                     {nav.title}
                   </ScrollLink>
