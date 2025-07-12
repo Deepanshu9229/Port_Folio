@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -38,15 +38,64 @@ const Ball = (props) => {
   );
 };
 
-const BallCanvas = ({ icon }) => {
+// 2D Fallback Component
+const Ball2D = ({ icon, name }) => {
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#915EFF] to-[#4c1d95] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-inner">
+        <img 
+          src={icon} 
+          alt={name}
+          className="w-12 h-12 object-contain"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+};
+
+const BallCanvas = ({ icon, name }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLowPerformance, setIsLowPerformance] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      const mediaQuery = window.matchMedia("(max-width: 768px)");
+      const isMobileDevice = mediaQuery.matches;
+      
+      // Check for low performance indicators
+      const isLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+      const isSlowConnection = navigator.connection && navigator.connection.effectiveType === 'slow-2g';
+      
+      setIsMobile(isMobileDevice);
+      setIsLowPerformance(isMobileDevice || isLowMemory || isSlowConnection);
+    };
+
+    checkDevice();
+    
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    mediaQuery.addEventListener("change", checkDevice);
+    
+    return () => mediaQuery.removeEventListener("change", checkDevice);
+  }, []);
+
+  // Use 2D fallback for mobile and low-performance devices
+  if (isLowPerformance) {
+    return <Ball2D icon={icon} name={name} />;
+  }
+
   return (
     <Canvas
       frameloop='demand'
       dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ 
+        preserveDrawingBuffer: true,
+        antialias: false, // Disable for better performance
+        powerPreference: "high-performance"
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
+        <OrbitControls enableZoom={false} enablePan={false} />
         <Ball imgUrl={icon} />
       </Suspense>
 
