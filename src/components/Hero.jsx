@@ -32,7 +32,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="  absolute xs:bottom-10 bottom-25 w-full flex justify-center items-center ">
-        <a href="#about">
+        <a className="opacity-50" href="#about">
           <div className=" bg-transparent w-[30px] h-[54px] sm:w-[35px] sm:h-[64px] rounded-3xl border-4 border-secondary border-opacity-50 flex justify-center items-center p-2">
             <motion.div 
               animate={{ y: [0, 16, 0] }}
@@ -41,7 +41,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className=" bg-white w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-secondary"
+              className=" bg-[#915EFF] w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-secondary"
             />
           </div>
         </a>
