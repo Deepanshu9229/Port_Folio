@@ -63,12 +63,8 @@ const BallCanvas = ({ icon, name }) => {
       const mediaQuery = window.matchMedia("(max-width: 768px)");
       const isMobileDevice = mediaQuery.matches;
       
-      // Check for low performance indicators
-      const isLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
-      const isSlowConnection = navigator.connection && navigator.connection.effectiveType === 'slow-2g';
-      
       setIsMobile(isMobileDevice);
-      setIsLowPerformance(isMobileDevice || isLowMemory || isSlowConnection);
+      setIsLowPerformance(isMobileDevice); // Only based on screen size
     };
 
     checkDevice();

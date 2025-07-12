@@ -31,7 +31,7 @@ const Hero = () => {
       <ComputersCanvas />
 
       {/* Scroll Indicator */}
-      <div className="  absolute xs:bottom-10 bottom-25 w-full flex justify-center items-center ">
+      <div className="  absolute xs:bottom-10 bottom-25 sm:bottom-5 w-full flex justify-center items-center ">
         <a className="opacity-50" href="#about">
           <div className=" bg-transparent w-[30px] h-[54px] sm:w-[35px] sm:h-[64px] rounded-3xl border-4 border-secondary border-opacity-50 flex justify-center items-center p-2">
             <motion.div 

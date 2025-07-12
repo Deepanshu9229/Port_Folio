@@ -4,6 +4,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
+// 3D Computer Component
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("/desktop_pc/scene.gltf");
 
@@ -29,7 +30,7 @@ const Computers = ({ isMobile }) => {
   );
 };
 
-// Fallback 2D Computer Component
+// 2D Computer Fallback
 const Computer2D = ({ isMobile }) => {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
@@ -52,31 +53,11 @@ const Computer2D = ({ isMobile }) => {
             strokeWidth="2"
           />
           {/* Screen */}
-          <rect
-            x="60"
-            y="40"
-            width="180"
-            height="100"
-            rx="4"
-            fill="#0a0a0a"
-          />
+          <rect x="60" y="40" width="180" height="100" rx="4" fill="#0a0a0a" />
           {/* Stand */}
-          <rect
-            x="140"
-            y="150"
-            width="20"
-            height="40"
-            fill="#333"
-          />
+          <rect x="140" y="150" width="20" height="40" fill="#333" />
           {/* Base */}
-          <rect
-            x="120"
-            y="190"
-            width="60"
-            height="10"
-            rx="5"
-            fill="#333"
-          />
+          <rect x="120" y="190" width="60" height="10" rx="5" fill="#333" />
           {/* Screen glow */}
           <rect
             x="65"
@@ -124,42 +105,16 @@ const Computer2D = ({ isMobile }) => {
   );
 };
 
+// Main Canvas Component
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isLowPerformance, setIsLowPerformance] = useState(false);
-  const [modelLoaded, setModelLoaded] = useState(false);
 
   useEffect(() => {
-    // Check for mobile and low-performance devices
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mediaQuery.matches);
-
-    // Performance detection
-    const checkPerformance = () => {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      
-      if (!gl) {
-        setIsLowPerformance(true);
-        return;
-      }
-
-      // Check for mobile GPU indicators
-      const renderer = gl.getParameter(gl.RENDERER);
-      const vendor = gl.getParameter(gl.VENDOR);
-      
-      const isMobileGPU = /mobile|android|arm|mali|adreno|powervr|tegra/i.test(renderer + vendor);
-      const hasLimitedMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
-      
-      setIsLowPerformance(isMobileGPU || hasLimitedMemory || mediaQuery.matches);
-    };
-
-    checkPerformance();
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
-      setIsLowPerformance(event.matches || isLowPerformance);
     };
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);
@@ -169,34 +124,32 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  // Show 2D fallback for low-performance devices
-  if (isLowPerformance) {
-    return <Computer2D isMobile={isMobile} />;
+  // ✅ Show 2D computer on mobile
+  if (isMobile) {
+    return <Computer2D isMobile={true} />;
   }
 
+  // ✅ Show 3D model on larger screens (desktop/laptop)
   return (
     <Canvas
       frameloop='demand'
-      shadows={!isMobile}
-      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      shadows
+      dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ 
+      gl={{
         preserveDrawingBuffer: true,
-        antialias: !isMobile,
-        powerPreference: "high-performance"
+        antialias: true,
+        powerPreference: "high-performance",
       }}
-      onCreated={() => setModelLoaded(true)}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
-          enableDamping={!isMobile}
         />
-        <Computers isMobile={isMobile} />
+        <Computers isMobile={false} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );
