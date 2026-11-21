@@ -9,7 +9,7 @@ const SectionWrapper = (Component, idName) =>
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="sm:px-12 px-6 sm:py-12 py-8 max-w-6xl mx-auto relative z-0"
+        className="sm:px-12 px-6 sm:py-12 py-8 max-w-7xl mx-auto relative z-0"
       >
         <span className="hash-span" id={idName}>
           &nbsp;
