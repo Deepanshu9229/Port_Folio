@@ -22,7 +22,7 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={isMobile ? 8 : 10} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.5 : 0.75}
+        scale={isMobile ? 0.45 : 0.65}
         position={isMobile ? [0, -2.5, -2.2] : [0, -3.2, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
@@ -36,8 +36,8 @@ const Computer2D = ({ isMobile }) => {
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="computer-fallback">
         <svg
-          width={isMobile ? "200" : "300"}
-          height={isMobile ? "150" : "225"}
+          width={isMobile ? "200" : "280"}
+          height={isMobile ? "150" : "210"}
           viewBox="0 0 300 225"
           className="opacity-40"
         >
@@ -124,18 +124,16 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  // ✅ Show 2D computer on mobile
   if (isMobile) {
     return <Computer2D isMobile={true} />;
   }
 
-  // ✅ Show 3D model on larger screens (desktop/laptop)
   return (
     <Canvas
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: [20, 3, 5], fov: 24 }}
       gl={{
         preserveDrawingBuffer: true,
         antialias: true,

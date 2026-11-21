@@ -12,7 +12,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 80);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,11 +26,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-4 sm:px-16 w-full flex items-center py-3 fixed top-0 z-20 transition-colors duration-300 ${
-        scrolled ? "bg-primary shadow-lg" : "bg-transparent"
+      className={`px-6 sm:px-12 w-full flex items-center py-2.5 sm:py-3 fixed top-0 z-20 transition-colors duration-300 ${
+        scrolled ? "bg-primary/95 backdrop-blur-sm shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+      <div className="w-full flex justify-between items-center max-w-6xl mx-auto">
         {/* Logo */}
         <Link
           to="/"
@@ -43,29 +43,29 @@ const Navbar = () => {
           <img 
             src={logo} 
             alt="logo" 
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-3xl object-contain" 
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl object-contain" 
           />
-          <p className="text-white text-[17px] font-bold cursor-pointer hidden sm:flex">
+          <p className="text-white text-[15px] sm:text-[16px] font-bold cursor-pointer hidden sm:flex">
             Deepanshu &nbsp;<span className="text-[#915EFF]">Patel</span>
           </p>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden sm:flex items-center gap-6 lg:gap-8">
-          <ul className="list-none flex flex-row gap-6 lg:gap-8">
+        <div className="hidden sm:flex items-center gap-5 lg:gap-7">
+          <ul className="list-none flex flex-row gap-5 lg:gap-7">
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
                 className={`${
                   active === nav.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[15px] lg:text-[17px] font-medium cursor-pointer transition-colors`}
+                } hover:text-white text-[14px] lg:text-[15px] font-medium cursor-pointer transition-colors`}
                 onClick={() => setActive(nav.title)}
               >
                 <ScrollLink
                   to={nav.id}
                   smooth={true}
                   duration={500}
-                  offset={-80}
+                  offset={-70}
                 >
                   {nav.title}
                 </ScrollLink>
@@ -78,7 +78,7 @@ const Navbar = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#915EFF] hover:bg-[#7a44df] text-white py-1.5 px-4 rounded-xl text-[14px] lg:text-[15px] font-semibold transition-all shadow-md flex items-center gap-1.5"
+            className="bg-[#915EFF] hover:bg-[#7a44df] text-white py-1.5 px-3.5 rounded-lg text-[13px] lg:text-[14px] font-semibold transition-all shadow-sm flex items-center gap-1.5"
           >
             <span>Resume</span>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-[24px] h-[24px] object-contain cursor-pointer"
+            className="w-[22px] h-[22px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
 
@@ -109,13 +109,13 @@ const Navbar = () => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-16 right-4 min-w-[160px] z-20 rounded-xl shadow-lg flex-col gap-4`}
+            } p-5 black-gradient absolute top-14 right-4 min-w-[150px] z-20 rounded-xl shadow-lg flex-col gap-3.5`}
           >
-            <ul className="list-none flex flex-col gap-4 w-full">
+            <ul className="list-none flex flex-col gap-3 w-full">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] transition-colors ${
+                  className={`font-poppins font-medium cursor-pointer text-[15px] transition-colors ${
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => handleNavClick(nav.title)}
@@ -124,7 +124,7 @@ const Navbar = () => {
                     to={nav.id}
                     smooth={true}
                     duration={500}
-                    offset={-80}
+                    offset={-70}
                   >
                     {nav.title}
                   </ScrollLink>
