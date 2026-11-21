@@ -1,0 +1,213 @@
+\documentclass[10pt, a4paper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=0.95cm,
+    bottom=0.95cm,
+    left=1.6cm,
+    right=1.6cm,
+    footskip=1.0cm
+]{geometry}
+
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Deepanshu Patel's CV},
+    pdfauthor={Deepanshu Patel},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+\usepackage{iftex}
+
+% Ensure generated PDF is machine readable / ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+\fi
+
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Formatting settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1.5pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.15 cm
+}{
+    0.09 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.06 cm,
+        parsep=0.03 cm,
+        partopsep=0pt,
+        itemsep=1.4pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0cm}{0cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+\newcommand{\lighttext}[1]{{\fontsize{9.3pt}{11.2pt}\selectfont #1}}
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+\begin{header}
+    \setlength{\topsep}{0pt}\par\centering\linespread{1.1}
+    
+    {\fontsize{23 pt}{23 pt}\selectfont \textbf{DEEPANSHU PATEL}\\
+    \vspace{0.18cm}
+    \textsf{\fontsize{10.5pt}{12.5pt}\selectfont Software Engineer}}
+
+    \normalsize
+    \vspace{0.18cm}
+
+    \lighttext{Bengaluru, India%
+    \kern 4.0 pt \AND \kern 4.0 pt%
+    \mbox{\hrefWithoutArrow{mailto:deepanshupatel9229@gmail.com}{deepanshupatel9229@gmail.com}}%
+    \kern 4.0 pt \AND \kern 4.0 pt%
+    \mbox{\hrefWithoutArrow{tel:+917974734229}{+91 7974734229}}%
+    \kern 4.0 pt \AND \kern 4.0 pt%
+    \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/deepanshu-offi/}{LinkedIn}}%
+    \kern 4.0 pt \AND \kern 4.0 pt%
+    \mbox{\hrefWithoutArrow{https://github.com/Deepanshu9229}{GitHub}}%
+    \kern 4.0 pt \AND \kern 4.0 pt%
+    \mbox{\hrefWithoutArrow{https://leetcode.com/u/Deepanshu_018/}{LeetCode}}%
+    \kern 4.0 pt \AND \kern 4.0 pt%
+    \mbox{\hrefWithoutArrow{https://deepanshu-three.vercel.app/}{Portfolio}}}%
+\end{header}
+
+
+\vspace{0.12cm}
+\section{Summary}
+\begin{onecolentry}
+    \lighttext{Software Engineer (1+ year) building a React/TypeScript enterprise platform. Shipped performance, security (VAPT), real-time (SSE), and access-control (RBAC) features end to end, from root-cause debugging to production.}
+\end{onecolentry}
+
+\section{Work Experience}
+\vspace{0.04cm}
+\noindent
+\lighttext{\textbf{Leucine} | Software Engineer \hfill \textbf{OCT 2025 -- Present}}
+\vspace{0.05cm}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item \lighttext{Cut initial bundle size by \textbf{76\% (1.89 MB to 445 KB)} by code-splitting the app into pre-login and post-login chunks with dynamic imports and \textbf{React Suspense}, which also closed a VAPT source-code disclosure finding by reducing exposed API endpoints from 360 to 20.}
+
+        \item \lighttext{Replaced hardcoded role checks with a \textbf{dynamic, backend-driven RBAC permission engine} supporting 450+ granular permissions, letting admins change access control without code deployments.}
+
+        \item \lighttext{Architected a real-time deadline alert system using \textbf{React, TypeScript, and Server-Sent Events (SSE)}, implementing exponential reconnect re-sync and event deduplication on a shared \texttt{useSSE} hook extended with named events, lifecycle callbacks, and configurable backoff.}
+
+        \item \lighttext{Fixed race conditions between redux-persist rehydration, an idle-timeout middleware, and saga-driven permission loading that left users on white screens after idle timeouts; re-login now resumes in place.}
+
+        % TODO: measure job-log load time before/after and lead with it, e.g. "Cut job-log load time from Xs to Ys by ..."
+        \item \lighttext{Improved runtime performance on heavily used screens: replaced a wildcard \texttt{LIKE} search over nested job-log entries with an exact-match identifier filter for a large enterprise customer, eliminated duplicate list fetches on the Jobs tabs, skipped no-op API calls, and moved permission checks to $O(1)$ \texttt{Set} lookups.}
+
+        \item \lighttext{Engineered a client-side 3-level licensing enforcement module (payment banners, feature gating, and session re-verification) for overdue accounts, enabling backend-driven feature restrictions without frontend deployments.}
+
+        \item \lighttext{Implemented \textbf{parent-child inheritance} in the platform's object model, so child types inherit properties and relations from a parent; resolved ID collisions across inherited relations and added history-based breadcrumb navigation across related objects.}
+
+        % \item \lighttext{Cut warm production build time from $\sim$81s to $\sim$5s (18.5x) by enabling webpack persistent caching and per-environment source maps.}  % add only once the PR is merged
+    \end{highlights}
+\end{onecolentry}
+
+\section{Projects}
+\vspace{0.04cm}
+\noindent
+\lighttext{\textbf{E-Commerce Business Platform} \textcolor{gray}{(Full-Stack)} \hfill \hrefWithoutArrow{https://perfume-frontend-dusky.vercel.app/}{Live Demo} \,|\, \hrefWithoutArrow{https://github.com/Deepanshu9229/Perfume_42}{Code}}
+\vspace{0.05cm}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item \lighttext{Built a full-stack e-commerce system featuring a responsive \textbf{customer storefront} and a separate, dedicated \textbf{administrative CMS} for inventory and order tracking.}
+        \item \lighttext{Implemented secure stateless authentication using \textbf{JWT} and \textbf{bcrypt}, establishing \textbf{role-based access control (RBAC)} across protected administrative and user routes.}
+        \item \lighttext{Engineered end-to-end checkout with \textbf{Razorpay} integration, handling server-side transaction verification and persistent cart state synchronization across sessions.}
+        \item \lighttext{Streamlined product media pipeline using \textbf{Multer} and \textbf{Cloudinary}, offloading image hosting and leveraging cloud CDN delivery for fast asset loading.}
+        \item \lighttext{\textbf{Tech Stack:} React, JavaScript (ES6+), Node.js, Express.js, MongoDB Atlas, TailwindCSS, Razorpay, Cloudinary}
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.14cm}
+\noindent
+\lighttext{\textbf{Self-Hosted LLM Inference \& Automation Server} \textcolor{gray}{(Applied AI / Local LLM)}}
+\vspace{0.05cm}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item \lighttext{Deployed and self-hosted \textbf{Ollama (Llama 3.1 8B)} on an \textbf{Oracle Cloud} Ubuntu VM, configuring swap memory and network ports to connect local AI inference APIs with containerized \textbf{Docker} and \textbf{n8n} automation workflows.}
+        \item \lighttext{Configured server firewall rules and a scheduled cron keep-alive script to maintain continuous uptime and model availability.}
+        \item \lighttext{\textbf{Tech Stack:} Oracle Cloud, Ubuntu Linux, Ollama, Llama 3.1, Docker, n8n, Bash/Cron}
+    \end{highlights}
+\end{onecolentry}
+
+\section{Skills}
+\lighttext{
+\textbf{Languages:} TypeScript, JavaScript (ES6+), SQL, Java, Python \\[2pt]
+\textbf{Frontend:} React, Redux, Redux-Saga, HTML5, CSS3, TailwindCSS, Mantine, Material UI, React Hook Form, Webpack, Responsive Design, Performance Optimization \\[2pt]
+\textbf{Backend \& Databases:} Node.js, Express.js, REST APIs, Server-Sent Events (SSE), Multer, PostgreSQL, MongoDB \\[2pt]
+\textbf{Cloud, DevOps \& AI Tooling:} Oracle Cloud, Linux, Docker, Ollama, n8n, Claude Code (MCP), Git/GitHub, Postman
+}
+
+\section{Education}
+\vspace{0.04cm}
+\lighttext{\textbf{Bachelor of Technology (B.Tech)} | National Institute of Technology Raipur (NITRR) \hfill \textbf{CGPA: 8.18} | 2021 -- 2025} \\[2pt]
+\lighttext{\textbf{Relevant Coursework:} Data Structures \& Algorithms, Object-Oriented Programming, Operating Systems, Computer Networks, Database Management Systems (DBMS), Machine Learning}
+
+\end{document}

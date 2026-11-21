@@ -23,13 +23,16 @@ import threejs from "./tech/threejs.svg";
 import python from "./tech/python.png";
 import flutter from "./tech/flutter.png";
 
+import leucine from "./company/leucine.svg";
 import tesla from "./company/tesla.png";
 import nitrr from "./company/nitrr.png";
-import aiims from "./company/aiims.png"
+import aiims from "./company/aiims.png";
 
-import chatapp from "../assets/chatapp.png"
-import lung from "../assets/lung.png"
-import farmerApp from "../assets/farmerApp.jpg"
+import ecommerce from "./ecommerce.svg";
+import llm_server from "./llm_server.svg";
+import chatapp from "./chatapp.png";
+import lung from "./lung.png";
+import farmerApp from "./farmerApp.jpg";
 
 export {
   logo,
@@ -53,15 +56,15 @@ export {
   tailwind,
   typescript,
   threejs,
-
+  python,
+  flutter,
+  leucine,
   tesla,
   nitrr,
   aiims,
- 
+  ecommerce,
+  llm_server,
   chatapp,
   lung,
   farmerApp,
-  python,
-  flutter,
-
 };

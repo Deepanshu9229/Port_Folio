@@ -1,241 +1,245 @@
 import {
-    mobile,
-    backend,
-    creator,
-    web,
-    javascript,
-    typescript,
-    html,
-    css,
-    reactjs,
-    redux,
-    tailwind,
-    nodejs,
-    mongodb,
-    git,
-    figma,
-    docker,
+  mobile,
+  backend,
+  creator,
+  web,
+  javascript,
+  typescript,
+  html,
+  css,
+  reactjs,
+  redux,
+  tailwind,
+  nodejs,
+  mongodb,
+  git,
+  figma,
+  docker,
+  threejs,
+  python,
+  leucine,
+  nitrr,
+  aiims,
+  ecommerce,
+  llm_server,
+  chatapp,
+} from "../assets";
 
-    tesla,
+export const navLinks = [
+  {
+    id: "about",
+    title: "About",
+  },
+  {
+    id: "experience",
+    title: "Experience",
+  },
+  {
+    id: "work",
+    title: "Projects",
+  },
+  {
+    id: "contact",
+    title: "Contact",
+  },
+];
 
-    threejs,
-    nitrr,
-    aiims,
-    chatapp,
-    lung,
-    farmerApp,
-    flutter,
-    python,
-  } from "../assets";
-  
-  export const navLinks = [
-    {
-      id: "about",
-      title: "About",
-    },
-    {
-      id: "work",
-      title: "Work",
-    },
-    {
-      id: "contact",
-      title: "Contact",
-    },
-  ];
-  
-  const services = [
-    {
-      title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "Flutter Developer",
-      icon: mobile,
-    },
-    {
-      title: "Machine Learning",
-      icon: backend,
-    },
-    {
-      title: "Data Structures and Algorithms",
-      icon: creator,
-    },
-  ];
-  
-  const  technologies = [
-    {
-      name: "HTML 5",
-      icon: html,
-    },
-    {
-      name: "CSS 3",
-      icon: css,
-    },
-    {
-      name: "JavaScript",
-      icon: javascript,
-    },
-    {
-      name: "React JS",
-      icon: reactjs,
-    },
-    {
-      name: "Redux Toolkit",
-      icon: redux,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-    },
-    {
-      name: "Node JS",
-      icon: nodejs,
-    },
-    {
-      name: "MongoDB",
-      icon: mongodb,
-    },
-    {
-      name: "Three JS",
-      icon: threejs,
-    },
-    {
-      name: "git",
-      icon: git,
-    },
-    {
-      name: "figma",
-      icon: figma,
-    },
-  ];
-  
-  const experiences = [
-    {
-      title: "Software Developer",
-      company_name: "NIT Raipur",
-      icon: nitrr,
-      iconBg: "#383E56",
-      date: "June 2024 - July 2024",
-      points: [
-        "Develop a Smart Farm Management System for efficient water usage and farm data management.",
-        "Features : Real-time pump control, timer adjustments, new pump addition, and farm details.",
-        "Impact : Optimizes water usage, reduces wastage, and enhances farm productivity.",
-      ],
-    },
-    {
-      title: "Summer Intern",
-      company_name: "AIIMS Raipur",
-      icon: aiims,
-      iconBg: "#E6DEDD",
-      date: "June 2023 - July 2023",
-      points: [
-        "Analyzed biomedical signals and systems using Python and Pandas.",
-        "Simulated and processed waveforms in Google Colab for signal analysis.",
-      ],
-    },
-    
-  ];
-  
-  // const testimonials = [
-  //   {
-  //     testimonial:
-  //       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-  //     name: "Sara Lee",
-  //     designation: "CFO",
-  //     company: "Acme Co",
-  //     image: "https://randomuser.me/api/portraits/women/4.jpg",
-  //   },
-  //   {
-  //     testimonial:
-  //       "I've never met a web developer who truly cares about their clients' success like Rick does.",
-  //     name: "Chris Brown",
-  //     designation: "COO",
-  //     company: "DEF Corp",
-  //     image: "https://randomuser.me/api/portraits/men/5.jpg",
-  //   },
-  //   {
-  //     testimonial:
-  //       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-  //     name: "Lisa Wang",
-  //     designation: "CTO",
-  //     company: "456 Enterprises",
-  //     image: "https://randomuser.me/api/portraits/women/6.jpg",
-  //   },
-  // ];
-  
-  const projects = [
-    {
-      name: "Chat App",
-      description:
-        "Implemented JWT authentication, real-time messaging with Socket.IO, and a React frontend with Redux for state management and cookie-based authentication.",
-        
-      tags: [
-        {
-          name: "JavaScript",
-          color: "green-text-gradient",
-        },
-        {
-          name: "react",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "Expess",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "redux",
-          color: "blue-text-gradient",
-        },
-      ],
-      image: chatapp,
-      source_code_link: "https://chatapp-one-ashen.vercel.app/",
-    },
-    {
-      name: "Lung Disease Detection",
-      description:
-        "Built and deployed an ML model with 94% accuracy for classifying respiratory conditions like Asthma and COPD, using hyperparameter tuning and cross-validation for improved performance. Deployed the model as a web app with Python (Streamlit) for real-time predictions.",
-      tags: [
-        {
-          name: "Python",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "Machine Learning",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "Streamlit",
-          color: "green-text-gradient",
-        },
-        {
-          name: "Sk-learn",
-          color: "blue-text-gradient",
-        },
-      ],
-      image: lung,
-      source_code_link: "https://github.com/Deepanshu9229/lung_sound_classification",
-    },
-    {
-      name: "Farmer App",
-      description:
-        "Built an app for farmers using Flutter and Dart, designed in Figma. Features include real-time pump control, timer adjustments, adding new pumps, and managing farm details. The app helps optimize water usage, reduce wastage, and boost farm productivity.",
-      tags: [
-        {
-          name: "Flutter",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "Dart",
-          color: "green-text-gradient",
-        },
-      ],
-      image: farmerApp,
-      source_code_link: "https://drive.google.com/file/d/1Q6Nhao0lJd9xPqExpIpYW60WdkwtzOky/view?usp=sharing",
-    },
-  ];
-  
-  export { services, technologies, experiences, projects };
+const services = [
+  {
+    title: "Enterprise Web Platforms",
+    icon: web,
+  },
+  {
+    title: "Backend & API Architecture",
+    icon: backend,
+  },
+  {
+    title: "Performance & Security (VAPT)",
+    icon: creator,
+  },
+  {
+    title: "Applied AI & Automation",
+    icon: mobile,
+  },
+];
+
+const technologies = [
+  {
+    name: "TypeScript",
+    icon: typescript,
+  },
+  {
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "React JS",
+    icon: reactjs,
+  },
+  {
+    name: "Redux Toolkit",
+    icon: redux,
+  },
+  {
+    name: "Node JS",
+    icon: nodejs,
+  },
+  {
+    name: "MongoDB",
+    icon: mongodb,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: tailwind,
+  },
+  {
+    name: "Docker",
+    icon: docker,
+  },
+  {
+    name: "Python",
+    icon: python,
+  },
+  {
+    name: "Three JS",
+    icon: threejs,
+  },
+  {
+    name: "git",
+    icon: git,
+  },
+];
+
+const experiences = [
+  {
+    title: "Software Engineer",
+    company_name: "Leucine",
+    icon: leucine,
+    iconBg: "#0B132B",
+    date: "OCT 2025 – Present",
+    points: [
+      "Cut initial bundle size by 76% (1.89 MB to 445 KB) by code-splitting the app into pre-login and post-login chunks with dynamic imports and React Suspense, closing a VAPT finding by reducing exposed API endpoints from 360 to 20.",
+      "Replaced hardcoded role checks with a dynamic, backend-driven RBAC permission engine supporting 450+ granular permissions, letting admins change access control without code deployments.",
+      "Architected a real-time deadline alert system using React, TypeScript, and Server-Sent Events (SSE), implementing exponential reconnect re-sync and event deduplication on a shared useSSE hook.",
+      "Fixed race conditions between redux-persist rehydration, idle-timeout middleware, and saga-driven permission loading that left users on white screens after idle timeouts; re-login now resumes in place.",
+      "Improved runtime performance on heavily used screens: replaced wildcard LIKE searches with exact-match identifier filters, eliminated duplicate list fetches on Jobs tabs, and moved permission checks to O(1) Set lookups.",
+      "Engineered client-side 3-level licensing enforcement module (payment banners, feature gating, session re-verification) and implemented parent-child inheritance in the platform object model.",
+    ],
+  },
+  {
+    title: "Software Developer Intern",
+    company_name: "NIT Raipur",
+    icon: nitrr,
+    iconBg: "#1f2937",
+    date: "June 2024 – July 2024",
+    points: [
+      "Developed a Smart Farm Management System for efficient water usage and real-time farm sensor & telemetry management.",
+      "Implemented real-time pump controls, automated timer adjustments, and multi-pump management dashboards.",
+      "Optimized water usage and enhanced resource management through automated scheduling algorithms.",
+    ],
+  },
+  {
+    title: "Summer Research Intern",
+    company_name: "AIIMS Raipur",
+    icon: aiims,
+    iconBg: "#E6DEDD",
+    date: "June 2023 – July 2023",
+    points: [
+      "Analyzed biomedical signals and biological systems using Python, NumPy, and Pandas data pipelines.",
+      "Simulated and processed waveforms in Google Colab for physiological signal analysis and feature extraction.",
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: "E-Commerce Business Platform",
+    description:
+      "Full-stack e-commerce system featuring a responsive customer storefront and separate dedicated administrative CMS. Engineered stateless JWT auth with RBAC, Razorpay checkout with server-side verification, and a Multer/Cloudinary media CDN pipeline.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "TailwindCSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Razorpay",
+        color: "green-text-gradient",
+      },
+    ],
+    image: ecommerce,
+    source_code_link: "https://github.com/Deepanshu9229/Perfume_42",
+    live_demo_link: "https://perfume-frontend-dusky.vercel.app/",
+  },
+  {
+    name: "Self-Hosted LLM & Automation Server",
+    description:
+      "Deployed and self-hosted Ollama (Llama 3.1 8B) on an Oracle Cloud Ubuntu VM, configuring swap memory and network ports to connect local AI inference APIs with containerized Docker and n8n automation workflows, with cron keep-alive scripts for 99.9% uptime.",
+    tags: [
+      {
+        name: "Oracle Cloud",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Docker",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Ollama",
+        color: "green-text-gradient",
+      },
+      {
+        name: "n8n",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Llama 3.1",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: llm_server,
+    source_code_link: "https://github.com/Deepanshu9229",
+  },
+  {
+    name: "Real-Time Chat Platform",
+    description:
+      "Full-stack real-time messaging application implementing stateless JWT authentication, low-latency live communication via Socket.IO, and a React frontend with Redux for state management and cookie-based sessions.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Socket.IO",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Node.js",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Redux",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: chatapp,
+    source_code_link: "https://chatapp-one-ashen.vercel.app/",
+  },
+];
+
+export { services, technologies, experiences, projects };

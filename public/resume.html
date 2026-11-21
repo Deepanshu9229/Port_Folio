@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deepanshu Patel - Resume</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0.95cm 1.6cm 0.95cm 1.6cm;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+    background: #fff;
+    font-size: 9.15pt;
+    line-height: 1.27;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a {
+    color: #0000ee;
+    text-decoration: underline;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 0.12cm;
+  }
+  .name {
+    font-size: 22.5pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.1;
+  }
+  .sub-title {
+    font-size: 10.2pt;
+    font-weight: 500;
+    margin-top: 0.10cm;
+    margin-bottom: 0.10cm;
+    color: #000;
+  }
+  .contact-line {
+    font-size: 9.15pt;
+    line-height: 1.30;
+    color: #000;
+  }
+  .sep {
+    margin: 0 4px;
+    color: #444;
+  }
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    margin-top: 0.14cm;
+    margin-bottom: 0.02cm;
+    display: flex;
+    flex-direction: column;
+  }
+  .titlerule {
+    border: none;
+    border-top: 1px solid #000;
+    margin-top: 2px;
+    margin-bottom: 0.06cm;
+  }
+  .row-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.04cm;
+  }
+  .bold {
+    font-weight: 700;
+  }
+  .gray {
+    color: #666;
+  }
+  ul.highlights {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0.02cm;
+    margin-bottom: 0.04cm;
+  }
+  ul.highlights li {
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 1.6px;
+    font-size: 9.15pt;
+    line-height: 1.27;
+  }
+  ul.highlights li::before {
+    content: "\2022";
+    position: absolute;
+    left: 2px;
+    top: -0.5px;
+    font-size: 8.5pt;
+  }
+  code {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 8.8pt;
+  }
+  .skills-block {
+    margin-top: 0.04cm;
+    line-height: 1.42;
+  }
+  .skills-line {
+    margin-bottom: 1.8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="name">DEEPANSHU PATEL</div>
+  <div class="sub-title">Software Engineer</div>
+  <div class="contact-line">
+    Bengaluru, India
+    <span class="sep">|</span>
+    <a href="mailto:deepanshupatel9229@gmail.com">deepanshupatel9229@gmail.com</a>
+    <span class="sep">|</span>
+    <a href="tel:+917974734229">+91 7974734229</a>
+    <span class="sep">|</span>
+    <a href="https://www.linkedin.com/in/deepanshu-offi/" target="_blank">LinkedIn</a>
+    <span class="sep">|</span>
+    <a href="https://github.com/Deepanshu9229" target="_blank">GitHub</a>
+    <span class="sep">|</span>
+    <a href="https://leetcode.com/u/Deepanshu_018/" target="_blank">LeetCode</a>
+    <span class="sep">|</span>
+    <a href="https://deepanshu-three.vercel.app/" target="_blank">Portfolio</a>
+  </div>
+</div>
+
+<div class="section-title">
+  Summary
+  <div class="titlerule"></div>
+</div>
+<div style="line-height: 1.30; margin-bottom: 0.04cm;">
+  Software Engineer (1+ year) building a React/TypeScript enterprise platform. Shipped performance, security (VAPT), real-time (SSE), and access-control (RBAC) features end to end, from root-cause debugging to production.
+</div>
+
+<div class="section-title">
+  Work Experience
+  <div class="titlerule"></div>
+</div>
+<div class="row-between">
+  <div><span class="bold">Leucine</span> | Software Engineer</div>
+  <div class="bold">OCT 2025 &ndash; Present</div>
+</div>
+<ul class="highlights">
+  <li>Cut initial bundle size by <span class="bold">76% (1.89 MB to 445 KB)</span> by code-splitting the app into pre-login and post-login chunks with dynamic imports and <span class="bold">React Suspense</span>, which also closed a VAPT source-code disclosure finding by reducing exposed API endpoints from 360 to 20.</li>
+  <li>Replaced hardcoded role checks with a <span class="bold">dynamic, backend-driven RBAC permission engine</span> supporting 450+ granular permissions, letting admins change access control without code deployments.</li>
+  <li>Architected a real-time deadline alert system using <span class="bold">React, TypeScript, and Server-Sent Events (SSE)</span>, implementing exponential reconnect re-sync and event deduplication on a shared <code>useSSE</code> hook extended with named events, lifecycle callbacks, and configurable backoff.</li>
+  <li>Fixed race conditions between redux-persist rehydration, an idle-timeout middleware, and saga-driven permission loading that left users on white screens after idle timeouts; re-login now resumes in place.</li>
+  <li>Improved runtime performance on heavily used screens: replaced a wildcard <code>LIKE</code> search over nested job-log entries with an exact-match identifier filter for a large enterprise customer, eliminated duplicate list fetches on the Jobs tabs, skipped no-op API calls, and moved permission checks to <em>O</em>(1) <code>Set</code> lookups.</li>
+  <li>Engineered a client-side 3-level licensing enforcement module (payment banners, feature gating, and session re-verification) for overdue accounts, enabling backend-driven feature restrictions without frontend deployments.</li>
+  <li>Implemented <span class="bold">parent-child inheritance</span> in the platform's object model, so child types inherit properties and relations from a parent; resolved ID collisions across inherited relations and added history-based breadcrumb navigation across related objects.</li>
+</ul>
+
+<div class="section-title">
+  Projects
+  <div class="titlerule"></div>
+</div>
+
+<div class="row-between">
+  <div><span class="bold">E-Commerce Business Platform</span> <span class="gray">(Full-Stack)</span></div>
+  <div>
+    <a href="https://perfume-frontend-dusky.vercel.app/" target="_blank">Live Demo</a>
+    <span class="sep">|</span>
+    <a href="https://github.com/Deepanshu9229/Perfume_42" target="_blank">Code</a>
+  </div>
+</div>
+<ul class="highlights">
+  <li>Built a full-stack e-commerce system featuring a responsive <span class="bold">customer storefront</span> and a separate, dedicated <span class="bold">administrative CMS</span> for inventory and order tracking.</li>
+  <li>Implemented secure stateless authentication using <span class="bold">JWT</span> and <span class="bold">bcrypt</span>, establishing <span class="bold">role-based access control (RBAC)</span> across protected administrative and user routes.</li>
+  <li>Engineered end-to-end checkout with <span class="bold">Razorpay</span> integration, handling server-side transaction verification and persistent cart state synchronization across sessions.</li>
+  <li>Streamlined product media pipeline using <span class="bold">Multer</span> and <span class="bold">Cloudinary</span>, offloading image hosting and leveraging cloud CDN delivery for fast asset loading.</li>
+  <li><span class="bold">Tech Stack:</span> React, JavaScript (ES6+), Node.js, Express.js, MongoDB Atlas, TailwindCSS, Razorpay, Cloudinary</li>
+</ul>
+
+<div class="row-between" style="margin-top: 0.08cm;">
+  <div><span class="bold">Self-Hosted LLM Inference &amp; Automation Server</span> <span class="gray">(Applied AI / Local LLM)</span></div>
+</div>
+<ul class="highlights">
+  <li>Deployed and self-hosted <span class="bold">Ollama (Llama 3.1 8B)</span> on an <span class="bold">Oracle Cloud</span> Ubuntu VM, configuring swap memory and network ports to connect local AI inference APIs with containerized <span class="bold">Docker</span> and <span class="bold">n8n</span> automation workflows.</li>
+  <li>Configured server firewall rules and a scheduled cron keep-alive script to maintain continuous uptime and model availability.</li>
+  <li><span class="bold">Tech Stack:</span> Oracle Cloud, Ubuntu Linux, Ollama, Llama 3.1, Docker, n8n, Bash/Cron</li>
+</ul>
+
+<div class="section-title">
+  Skills
+  <div class="titlerule"></div>
+</div>
+<div class="skills-block">
+  <div class="skills-line"><span class="bold">Languages:</span> TypeScript, JavaScript (ES6+), SQL, Java, Python</div>
+  <div class="skills-line"><span class="bold">Frontend:</span> React, Redux, Redux-Saga, HTML5, CSS3, TailwindCSS, Mantine, Material UI, React Hook Form, Webpack, Responsive Design, Performance Optimization</div>
+  <div class="skills-line"><span class="bold">Backend &amp; Databases:</span> Node.js, Express.js, REST APIs, Server-Sent Events (SSE), Multer, PostgreSQL, MongoDB</div>
+  <div class="skills-line"><span class="bold">Cloud, DevOps &amp; AI Tooling:</span> Oracle Cloud, Linux, Docker, Ollama, n8n, Claude Code (MCP), Git/GitHub, Postman</div>
+</div>
+
+<div class="section-title">
+  Education
+  <div class="titlerule"></div>
+</div>
+<div class="row-between">
+  <div><span class="bold">Bachelor of Technology (B.Tech)</span> | National Institute of Technology Raipur (NITRR)</div>
+  <div><span class="bold">CGPA: 8.18</span> | 2021 &ndash; 2025</div>
+</div>
+<div style="margin-top: 0.03cm; line-height: 1.30;">
+  <span class="bold">Relevant Coursework:</span> Data Structures &amp; Algorithms, Object-Oriented Programming, Operating Systems, Computer Networks, Database Management Systems (DBMS), Machine Learning
+</div>
+
+</body>
+</html>

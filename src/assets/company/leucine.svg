@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="leucineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="50%" stop-color="#3A7BD5" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="lGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="100%" stop-color="#4FACFE" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer Hexagon / Background Circle -->
+  <circle cx="60" cy="60" r="54" fill="#0B132B" stroke="#00D2FF" stroke-width="2.5" />
+  
+  <!-- Stylized Hexagon Grid Node -->
+  <polygon points="60,18 96,39 96,81 60,102 24,81 24,39" fill="url(#leucineGrad)" opacity="0.35" />
+  
+  <!-- Inner Dynamic Modern 'L' Logo -->
+  <path d="M 44 32 L 56 32 L 56 72 L 78 72 L 78 84 L 44 84 Z" fill="url(#lGrad)" filter="url(#glow)" />
+  
+  <!-- Tech Accent Dot -->
+  <circle cx="82" cy="40" r="4.5" fill="#00F2FE" filter="url(#glow)" />
+</svg>
